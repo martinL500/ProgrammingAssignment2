@@ -3,7 +3,12 @@
 
 ## Write a short comment describing this function
 
+## Create a special matrix.
+
 makeCacheMatrix <- function(x = matrix()) {
+  ## xminus inverse matrix
+  ## original matrix
+  
   xminus <- NULL
   set <- function(y) {
     x <<- y
@@ -23,13 +28,14 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
+        ## xminus inverse matrix of x
     xminus <- x$getInverse()
     if (!is.null(xminus)) {
-      message ("cached data")
+      message ("retriving cached data")
       return(xminus)
     }
     data <- x$get()
-    xminus <- solve(data)
+    xminus <- solve(data,...)
     x$setInverse(xminus)
     xminus
   }
